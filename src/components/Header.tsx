@@ -134,8 +134,11 @@ const Header: React.FC = () => {
                     href={item} 
                     label={item.replace('#', '').replace('-us', ' us')}
                     onClick={(e) => {
+                      e.preventDefault();
                       scrollToSection(e, item);
-                      setIsOpen(false);
+                      setTimeout(() => {
+                        setIsOpen(false);
+                      }, 900); // delay to allow scroll to start
                     }}
                   />
                 </motion.div>
